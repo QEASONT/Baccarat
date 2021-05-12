@@ -17,90 +17,90 @@ import java.util.List;
  */
 public abstract class CardCollection {
 
-  protected List<Card> cards;
+    protected List<Card> cards;
 
-  /**
-   * Creates an empty CardCollection.
-   */
-  public CardCollection() {
-    cards = new LinkedList<>();
-  }
-
-  /**
-   * Provides the number of cards in this collection.
-   *
-   * @return Number of cards
-   */
-  public int size() {
-    return cards.size();
-  }
-
-  /**
-   * Computes the numerical value of this collection.
-   *
-   * <p>This is simply the sum of the values of its cards.</p>
-   *
-   * @return Value of the collection
-   */
-  public int value() {
-    int sum = 0;
-    for (Card card: cards) {
-      sum += card.value();
+    /**
+     * Creates an empty CardCollection.
+     */
+    public CardCollection() {
+        cards = new LinkedList<>();
     }
-    return sum;
-  }
 
-  /**
-   * Indicates whether this collection is empty or not.
-   *
-   * @return true if collection is empty, false otherwise
-   */
-  public boolean isEmpty() {
-    return cards.isEmpty();
-  }
-
-  /**
-   * Indicates whether a particular card is present in this collection.
-   *
-   * @param card Card we are looking for
-   * @return true if the card is present, false otherwise
-   */
-  public boolean contains(Card card) {
-    return cards.contains(card);
-  }
-
-  /**
-   * Adds the given card to this collection.
-   *
-   * @param card Card to be added
-   */
-  public void add(Card card) {
-    cards.add(card);
-  }
-
-  /**
-   * Discards the contents of this collection.
-   */
-  public void discard() {
-    cards.clear();
-  }
-
-  /**
-   * Discards the contents of this collection, returning
-   * the cards to another collection.
-   *
-   * @param recipient Collection that will receive the cards
-   */
-  public void discardTo(CardCollection recipient) {
-    while (!cards.isEmpty()) {
-      recipient.add(cards.remove(0));
+    /**
+     * Provides the number of cards in this collection.
+     *
+     * @return Number of cards
+     */
+    public int size() {
+        return cards.size();
     }
-  }
 
-  /**
-   * Sorts this collection's cards into their natural order.
-   */
-  public void sort() {
-    Collections.sort(cards);
-  }
+    /**
+     * Computes the numerical value of this collection.
+     *
+     * <p>This is simply the sum of the values of its cards.</p>
+     *
+     * @return Value of the collection
+     */
+    public int value() {
+        int sum = 0;
+        for (Card card : cards) {
+            sum += card.value();
+        }
+        return sum;
+    }
+
+    /**
+     * Indicates whether this collection is empty or not.
+     *
+     * @return true if collection is empty, false otherwise
+     */
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
+
+    /**
+     * Indicates whether a particular card is present in this collection.
+     *
+     * @param card Card we are looking for
+     * @return true if the card is present, false otherwise
+     */
+    public boolean contains(Card card) {
+        return cards.contains(card);
+    }
+
+    /**
+     * Adds the given card to this collection.
+     *
+     * @param card Card to be added
+     */
+    public void add(Card card) {
+        cards.add(card);
+    }
+
+    /**
+     * Discards the contents of this collection.
+     */
+    public void discard() {
+        cards.clear();
+    }
+
+    /**
+     * Discards the contents of this collection, returning
+     * the cards to another collection.
+     *
+     * @param recipient Collection that will receive the cards
+     */
+    public void discardTo(CardCollection recipient) {
+        while (!cards.isEmpty()) {
+            recipient.add(cards.remove(0));
+        }
+    }
+
+    /**
+     * Sorts this collection's cards into their natural order.
+     */
+    public void sort() {
+        Collections.sort(cards);
+    }
 }
